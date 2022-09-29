@@ -23,7 +23,7 @@ export default function Home() {
      <Header />
 
       <div className="df fdc p5 tac mb5">
-        <h1 style={{lineHeight: '2rem'}}>"Vive como si fueras a morir mañana, aprende como si fueras a vivir por siempre."</h1>
+        <h1 style={{lineHeight: '2rem'}}>&ldquo;Vive como si fueras a morir mañana, aprende como si fueras a vivir por siempre.&rdquo;</h1>
         <span>- Mahatma Gandhi</span>
       </div>
 
