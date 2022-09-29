@@ -24,7 +24,7 @@ export default function Home() {
 
       <div className="df fdc p5 tac mb5">
         <h1 style={{lineHeight: '2rem'}}>"Vive como si fueras a morir mañana, aprende como si fueras a vivir por siempre."</h1>
-        <quote>- Mahatma Gandhi</quote>
+        <span>- Mahatma Gandhi</span>
       </div>
 
       <h2 className="mt20 tdu">CURSOS</h2>
