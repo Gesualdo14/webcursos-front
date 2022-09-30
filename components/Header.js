@@ -3,6 +3,14 @@ import { useRouter } from "next/router"
 const Header = () => {
   const router = useRouter()
 
+  const handleLogin = () => {
+    fetch(`http://localhost:4000/auth/google`)
+      .then((res) => {
+        console.log({ res })
+      })
+      .catch((err) => console.log({ err }))
+  }
+
   return (
     <div
       className="df aic jcsb w100p p5"
@@ -14,7 +22,7 @@ const Header = () => {
       <h1 className="cursorp" onClick={() => router.back()}>
         🧠
       </h1>
-      <button>Iniciar sessión</button>
+      <button onClick={handleLogin}>Iniciar sessión</button>
     </div>
   )
 }
