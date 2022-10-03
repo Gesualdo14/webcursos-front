@@ -10,19 +10,17 @@ export default function Home() {
   const [courses, setCourses] = useState([])
 
   useEffect(() => {
-    if (!!jwt) {
-      fetch(`${BASE_BACKEND_URL}/courses`)
-        .then((res) => res.json())
-        .then(({ ok, data }) => {
-          if (ok) {
-            setCourses(data)
-          }
-        })
-        .catch((err) => {
-          console.log({ err })
-        })
-    }
-  }, [jwt])
+    fetch(`${BASE_BACKEND_URL}/courses`)
+      .then((res) => res.json())
+      .then(({ ok, data }) => {
+        if (ok) {
+          setCourses(data)
+        }
+      })
+      .catch((err) => {
+        console.log({ err })
+      })
+  }, [])
 
   return (
     <div className="df fdc aic jcc">
