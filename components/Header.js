@@ -1,14 +1,22 @@
 import { useRouter } from "next/router"
+import { useContext } from "react"
+import { AuthContext } from "../pages/_app"
 
 const Header = () => {
+  const {
+    state: { isAuthenticated },
+    dispatch,
+  } = useContext(AuthContext)
+  console.log({ isAuthenticated })
+
   const router = useRouter()
 
   const handleLogin = () => {
-    fetch(`http://localhost:4000/auth/google`)
-      .then((res) => {
-        console.log({ res })
-      })
-      .catch((err) => console.log({ err }))
+    window.location = `http://localhost:4000/auth/google`
+  }
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" })
   }
 
   return (
@@ -22,7 +30,10 @@ const Header = () => {
       <h1 className="cursorp" onClick={() => router.back()}>
         🧠
       </h1>
-      <button onClick={handleLogin}>Iniciar sessión</button>
+      {!isAuthenticated && (
+        <button onClick={handleLogin}>Iniciar sesión</button>
+      )}
+      {isAuthenticated && <button onClick={handleLogout}>Cerrar sesión</button>}
     </div>
   )
 }
