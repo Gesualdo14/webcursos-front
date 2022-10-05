@@ -23,7 +23,7 @@ const profile = () => {
   return (
     <>
       <Header />
-      <div>StudyPage: {courseId}</div>
+      <div>PROFILE</div>
     </>
   )
 }
