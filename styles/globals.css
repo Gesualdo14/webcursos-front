@@ -8,8 +8,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: sans-serif;
+
 }
 
 a {
@@ -28,6 +28,7 @@ a {
 .aic {  align-items: center; }
 .jcc {  justify-content: center; }
 .jcsb {  justify-content: space-between; }
+.asfe {  align-self: flex-end; }
 
 .w100p {  width: 100%;}
 
@@ -46,6 +47,7 @@ a {
 .tdu { text-decoration: underline;}
 .tac { text-align: center;}
 .p5 { padding: 0.5rem;}
+.p10 { padding: 1rem;}
 
 .cblack {  color: var(--black)}
 .cgrey {  color: var(--grey)}
@@ -56,5 +58,21 @@ a {
   }
   body {
     background: var(--black);
+  }
+}
+
+@media (max-width: 700px) {
+  .main-title {
+    max-width: 95vw;
+  }
+
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 10px;
   }
 }

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react"
 import { useRouter } from "next/router"
 import { AuthContext } from "./_app"
+import Header from "../components/Header"
 
 const profile = () => {
   const { state, dispatch } = useContext(AuthContext)
@@ -19,7 +20,12 @@ const profile = () => {
     }
   }, [router.query?.login_info])
 
-  return <div>profile</div>
+  return (
+    <>
+      <Header />
+      <div>StudyPage: {courseId}</div>
+    </>
+  )
 }
 
 export default profile
