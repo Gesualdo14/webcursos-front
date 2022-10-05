@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react"
 import CourseCard from "../components/CourseCard"
 import Header from "../components/Header"
-
-const BASE_BACKEND_URL = !!process.env.NEXT_PUBLIC_VERCEL_ENV ? process.env.NEXT_PUBLIC_BASE_BACKEND_URL : 'http://localhost:4000'
+import { config } from "../constants/config"
 
 export default function Home() {
   const [courses, setCourses] = useState([])
-  console.log({BASE_BACKEND_URL, env: process.env.NEXT_PUBLIC_VERCEL_ENV})
 
   useEffect(() => {
-    fetch(`${BASE_BACKEND_URL}/courses`)
+    fetch(`${config.BASE_BACKEND_URL}/courses`)
       .then((res) => res.json())
       .then(({ ok, data }) => {
         if (ok) {
@@ -20,20 +18,44 @@ export default function Home() {
         console.log({ err })
       })
   }, [])
-  console.log({ courses })
+
   return (
-    <div className="df fdc aic jcc">
-     <Header />
+    <>
+      <div className="df fdc aic jcc">
+        <Header />
 
-      <div className="df fdc p5 tac mb5">
-        <h1 style={{lineHeight: '2rem'}}>&ldquo;Vive como si fueras a morir mañana, aprende como si fueras a vivir por siempre.&rdquo;</h1>
-        <span>- Mahatma Gandhi</span>
-      </div>
+        <div className="df fdc p5 tac mb5">
+          <h1 className="main-title">
+            &ldquo;Vive como si fueras a morir mañana, <br /> aprende como si
+            fueras a vivir por siempre.&rdquo;
+          </h1>
+          <span className="asfe" style={{ marginRight: "4rem" }}>
+            - Mahatma Gandhi
+          </span>
+        </div>
 
-      <h2 className="mt20 tdu">CURSOS</h2>
-      <div className="mt10">
-      {courses.map((c) => <CourseCard course={c} key={c._id}/>)}
-    </div>
+        <h2 className="mt20 tdu">CURSOS</h2>
+        <div className="mt10">
+          {courses.map((c) => (
+            <CourseCard course={c} key={c._id} />
+          ))}
+        </div>
       </div>
+      <style jsx>{`
+        .main-title {
+          line-height: 3rem;
+          font-size: 3rem;
+          max-width: 60vw;
+          font-weight: 400;
+          font-family: cubano, sans-serif;
+        }
+
+        @media (max-width: 700px) {
+          .main-title {
+            max-width: 95vw;
+          }
+        }
+      `}</style>
+    </>
   )
 }

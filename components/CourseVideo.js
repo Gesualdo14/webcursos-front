@@ -11,7 +11,6 @@ const CourseVideo = ({ videoUrl }) => {
       <video
         src={videoUrl}
         style={{ width: "100%", height: "100%" }}
-        autoPlay
         controls
       ></video>
     </div>
