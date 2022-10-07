@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { AuthContext } from "./_app"
 import Header from "../components/Header"
 
-const profile = () => {
+export default function Profile() {
   const { state, dispatch } = useContext(AuthContext)
 
   const router = useRouter()
@@ -27,5 +27,3 @@ const profile = () => {
     </>
   )
 }
-
-export default profile
