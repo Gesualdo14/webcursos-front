@@ -2,6 +2,12 @@
   --black: #222;
   --blackDark: #111;
   --grey: rgb(93, 91, 91);
+  --violet: #a20dff;
+  --violetDark: #8a0bd9;
+  --red: #d12f2f;
+  --redDark: #aa2727;
+  --yellow: #efbf11;
+  --yellowDark: #c9a110;
 }
 
 html,
@@ -34,6 +40,8 @@ a {
 
 .br5 {  border-radius: 0.5rem;}
 .br20 {  border-radius: 2rem;}
+.ml5 {  margin-left: 0.5rem;}
+.mr5 {  margin-right: 0.5rem;}
 .m0 {  margin: 0;}
 .mb5 {  margin-bottom: 0.5rem;}
 .mt5 {  margin-top: 0.5rem;}
@@ -43,6 +51,10 @@ a {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.mh5 {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
 
 .tdu { text-decoration: underline;}
 .tac { text-align: center;}
@@ -51,6 +63,9 @@ a {
 
 .cblack {  color: var(--black)}
 .cgrey {  color: var(--grey)}
+.cred {  color: var(--red)}
+.cviolet {  color: var(--violet)}
+.cyellow {  color: var(--yellow)}
 
 @media (prefers-color-scheme: dark) {
   html {

@@ -1,19 +1,28 @@
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import CourseSectionVideo from "../../../components/CourseSectionVideo"
 import CourseVideo from "../../../components/CourseVideo"
 import Header from "../../../components/Header"
 import { config } from "../../../constants/config"
+import { AuthContext } from "../../_app"
 
 const StudyPage = () => {
+  const {
+    state: { isAuthenticated, user, alreadyChecked },
+  } = useContext(AuthContext)
   const router = useRouter()
   const { courseId } = router.query
 
   const [course, setCourse] = useState()
   const [selectedVideo, setSelectedVideo] = useState()
 
+  console.log({ alreadyChecked })
+
   useEffect(() => {
-    if (!!courseId) {
-      fetch(`${config.BASE_BACKEND_URL}/courses/${courseId}`)
+    if (!!courseId && alreadyChecked) {
+      console.log("FETCHING", { alreadyChecked, user })
+      const queryParams = !!user ? `?user_id=${user.sub}` : ""
+      fetch(`${config.BASE_BACKEND_URL}/courses/${courseId}${queryParams}`)
         .then((res) => res.json())
         .then(({ ok, data }) => {
           if (ok) {
@@ -27,8 +36,6 @@ const StudyPage = () => {
     }
   }, [courseId])
 
-  console.log({ course })
-
   return (
     <>
       <Header />
@@ -40,7 +47,7 @@ const StudyPage = () => {
           <h3 className="p10">SECCIONES del CURSO</h3>
           <div className="df fdc">
             {course?.sections?.map((section) => (
-              <div className="df fdc">
+              <div className="df fdc" key={section.name}>
                 <div
                   className="p10 mb5"
                   style={{ backgroundColor: "var(--black)" }}
@@ -49,21 +56,27 @@ const StudyPage = () => {
                 </div>
                 <div className="mb5">
                   {section.videos.map((video) => (
-                    <div
-                      className="df aic p5 cursorp"
-                      onClick={() => setSelectedVideo(video)}
-                    >
-                      <span style={{ fontSize: "0.9rem" }}>{video.title}</span>
-                    </div>
+                    <CourseSectionVideo
+                      key={video.title}
+                      video={video}
+                      setSelectedVideo={setSelectedVideo}
+                      isAuthenticated={isAuthenticated}
+                      hasBoughtTheCourse={course.hasBoughtTheCourse}
+                    />
                   ))}
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="p10" style={{ height: "100vh" }}>
+        <div className="p10" style={{ height: "100vh", minWidth: "70%" }}>
           <h3>{selectedVideo?.title}</h3>
-          <CourseVideo videoUrl={selectedVideo?.videoUrl} />
+          <CourseVideo
+            videoUrl={selectedVideo?.videoUrl}
+            isAuthenticated={isAuthenticated}
+            isFree={!!selectedVideo?.free}
+            hasBoughtTheCourse={course?.hasBoughtTheCourse}
+          />
         </div>
       </div>
     </>
