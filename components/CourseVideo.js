@@ -1,3 +1,6 @@
+import { useRouter } from "next/router"
+import { config } from "../constants/config"
+
 const CourseVideo = ({
   videoUrl,
   isAuthenticated,
@@ -5,6 +8,8 @@ const CourseVideo = ({
   isFree,
 }) => {
   const couldWatch = (isAuthenticated && hasBoughtTheCourse) || isFree
+
+  const router = useRouter()
   return (
     <div
       className="df aic jcc mt20 br5"
@@ -25,12 +30,7 @@ const CourseVideo = ({
       {!couldWatch && !isAuthenticated && (
         <p>
           Para visualizar el curso primero deberías{" "}
-          <u
-            className="cursorp"
-            onClick={() => {
-              window.location = `http://localhost:4000/auth/google`
-            }}
-          >
+          <u className="cursorp" onClick={() => router.push("/login")}>
             inciar sesión
           </u>
         </p>
