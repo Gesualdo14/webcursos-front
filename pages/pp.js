@@ -15,8 +15,8 @@ const pp = () => {
           Proteger su información privada es nuestra prioridad. Esta Declaración
           de Privacidad se aplica al Sitio y rige la recopilación y el uso de
           datos. Al utilizar el sitio web margingesualdo.dev (en adelante
-          "MGD"), usted acepta las prácticas relacionadas con los datos que se
-          describen en esta declaración.
+          &ldquo;MGD&rdquo;), usted acepta las prácticas relacionadas con los
+          datos que se describen en esta declaración.
         </p>
         <h3>Recopilación de su información personal</h3>
         <p>
@@ -25,8 +25,8 @@ const pp = () => {
           encuentra delegada en terceros. MGD no es responsable de las
           declaraciones de privacidad u otro contenido en sitios web fuera del
           sitio web de MGD.
-        </p>{" "}
-        <h3>Uso de su información personal</h3>{" "}
+        </p>
+        <h3>Uso de su información personal</h3>
         <p>
           MGD recopila y utiliza su información personal para brindar los
           servicios que ha solicitado. MGD también puede usar su información de
@@ -42,21 +42,21 @@ const pp = () => {
           derechos o propiedad de MGD; y, (c) actuar de acuerdo con las
           circunstancias exigentes para proteger la seguridad personal de los
           usuarios de MGD o del público.
-        </p>{" "}
-        <h3>¿Cómo elimino mi información personal de la aplicación?</h3>{" "}
+        </p>
+        <h3>¿Cómo elimino mi información personal de la aplicación?</h3>
         <p>
           Para eliminar la información personal podrás hacerlo desde la sección
-          "Mi Perfil" de tu menú de usuario. Allí tendrás que presionar el botón
-          "Eliminar mis datos personales" (nombre, apellido e imagen), y luego
-          presionar el botón de "Guardar cambios". Solo conservaremos tu correo
+          &ldquo;Mi Perfil&rdquo; de tu menú de usuario. Allí tendrás que
+          presionar el botón &ldquo;Eliminar mis datos personales&rdquo;
+          (nombre, apellido e imagen), y luego presionar el botón de
+          &ldquo;Guardar cambios&rdquo;. Solo conservaremos tu correo
           electrónico porque es el dato que nos permite vincularte a toda tu
           información transaccional dentro de MGD. De esta manera, cuando
           decidas volver a la aplicación, no habrás perdido el acceso a tus
           cursos.
-        </p>{" "}
-        <h3>Información recopilada automáticamente MGD</h3>{" "}
+        </p>
+        <h3>Información recopilada automáticamente MGD</h3>
         <p>
-          {" "}
           MGD puede recopilar automáticamente información sobre el hardware y el
           software de su computadora. Esta información puede incluir: su
           dirección IP, tipo de navegador, nombres de dominio, tiempos de acceso
