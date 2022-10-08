@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { AuthContext } from "../pages/_app"
 import Button from "./ui/Button"
 
-const Header = () => {
+const Header = ({ isLoginPage }) => {
   const {
     state: { isAuthenticated },
     dispatch,
@@ -11,13 +11,11 @@ const Header = () => {
 
   const router = useRouter()
 
-  const handleLogin = () => {
-    window.location = `http://localhost:4000/auth/google`
-  }
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" })
   }
+
+  console.log({ isLoginPage })
 
   return (
     <>
@@ -31,8 +29,12 @@ const Header = () => {
         <h1 className="cursorp" onClick={() => router.push("/")}>
           🧠 Feed Him Well
         </h1>
-        {!isAuthenticated && (
-          <Button text="Iniciar sesión" onClick={handleLogin} color="violet" />
+        {!isAuthenticated && !isLoginPage && (
+          <Button
+            text="Iniciar sesión"
+            onClick={() => router.push("/login")}
+            color="violet"
+          />
         )}
         {isAuthenticated && (
           <Button text="Cerrar sesión" onClick={handleLogout} color="violet" />
