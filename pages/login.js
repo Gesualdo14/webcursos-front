@@ -5,7 +5,7 @@ import Header from "../components/Header"
 import { config } from "../constants/config"
 import { AuthContext } from "./_app"
 
-const login = () => {
+export default function Login() {
   const {
     state: { isAuthenticated },
   } = useContext(AuthContext)
@@ -44,5 +44,3 @@ const login = () => {
     </div>
   )
 }
-
-export default login
