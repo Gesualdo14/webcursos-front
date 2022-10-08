@@ -10,7 +10,7 @@ export default function Document() {
         />
         <script
           src="https://kit.fontawesome.com/9a65aee490.js"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
           defer
         ></script>
       </Head>
