@@ -20,18 +20,17 @@ const CourseCard = ({ course }) => {
         <div
           style={{
             boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-            marginRight: "1rem",
-            width: `${150 * 1.77}px`,
+            width: `${155 * 1.77}px`,
           }}
         >
           <Image
             src={thumbnail}
             alt="Picture of the author"
-            width={150 * 1.77}
-            height={150}
+            width={155 * 1.77}
+            height={155}
           />
         </div>
-        <div className="df fdc card-body">
+        <div className="df fdc card-body mt5">
           <h3 className="cblack mv5">{name}</h3>
           <p className="cgrey m0">{description}</p>
         </div>
@@ -40,32 +39,23 @@ const CourseCard = ({ course }) => {
       <style jsx>
         {`
           .card-container {
+            flex-direction: column;
             background-color: white;
+            width: ${150 * 2 + "px"};
             padding: 0.75rem;
             border-radius: 0.5rem;
-            max-width: 40rem;
+            max-width: 20rem;
             transition: transform 0.2s ease;
+            margin: 0 auto;
+          }
+
+          .card-body {
+            width: 100%;
           }
 
           .card-container:hover {
             transform: scale(1.03);
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-          }
-
-          .card-body {
-            width: 60%;
-          }
-
-          @media (max-width: 800px) {
-            .card-container {
-              flex-direction: column;
-              width: ${150 * 2 + "px"};
-              margin: 0 auto;
-            }
-
-            .card-body {
-              width: 100%;
-            }
           }
         `}
       </style>
