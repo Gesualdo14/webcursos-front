@@ -5,6 +5,20 @@ const nextConfig = {
   images: {
     domains: ["webcursos.blob.core.windows.net"],
   },
+  async headers() {
+    return [
+      {
+        // matching all API routes
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `style-src 'self' *.fontawesome.com fonts.cdnfonts.com`,
+          },
+        ],
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
