@@ -29,6 +29,8 @@ a {
 
 .cursorp { cursor: pointer }
 
+.posr { position: relative}
+
 .df {  display: flex; }
 .fdc {  flex-direction: column; }
 .aic {  align-items: center; }
