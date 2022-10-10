@@ -34,7 +34,9 @@ export default function Home() {
           </span>
         </div>
 
-        <h2 className="mt20 tdu">CURSOS</h2>
+        <h2 className="mt20 tdu" style={{ marginTop: "5rem" }}>
+          CURSOS
+        </h2>
         <div className="mt10">
           {courses.map((c) => (
             <CourseCard course={c} key={c._id} />
