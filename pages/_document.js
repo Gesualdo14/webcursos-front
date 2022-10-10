@@ -5,7 +5,7 @@ export default function Document() {
     <Html>
       <Head>
         <link
-          href="http://fonts.cdnfonts.com/css/cubano?styles=103531,103532,103533,103534,103535"
+          href="https://fonts.cdnfonts.com/css/cubano?styles=103531,103532,103533,103534,103535"
           rel="stylesheet"
         />
         <script
