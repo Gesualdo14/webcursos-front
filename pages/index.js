@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import CourseCard from "../components/CourseCard"
 import Header from "../components/Header"
+import PayPalButtons from "../components/ui/PayPalButtons"
 import { config } from "../constants/config"
 
 export default function Home() {

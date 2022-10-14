@@ -55,13 +55,15 @@ const StudyPage = () => {
                   <span>{section.name}</span>
                 </div>
                 <div className="mb5">
-                  {section.videos.map((video) => (
+                  {section.videos.map((video, index) => (
                     <CourseSectionVideo
                       key={video.title}
+                      index={index}
                       video={video}
                       setSelectedVideo={setSelectedVideo}
                       isAuthenticated={isAuthenticated}
                       hasBoughtTheCourse={course.hasBoughtTheCourse}
+                      isSelected={selectedVideo.title === video.title}
                     />
                   ))}
                 </div>
@@ -69,15 +71,21 @@ const StudyPage = () => {
             ))}
           </div>
         </div>
-        <div className="p10" style={{ height: "100vh", minWidth: "70%" }}>
-          <h3>{selectedVideo?.title}</h3>
-          <CourseVideo
-            videoUrl={selectedVideo?.videoUrl}
-            isAuthenticated={isAuthenticated}
-            isFree={!!selectedVideo?.free}
-            hasBoughtTheCourse={course?.hasBoughtTheCourse}
-          />
-        </div>
+        {!!selectedVideo && (
+          <div className="p10" style={{ height: "100vh", minWidth: "70%" }}>
+            <h3>{selectedVideo?.title}</h3>
+            <CourseVideo
+              videoUrl={selectedVideo.videoUrl}
+              isAuthenticated={isAuthenticated}
+              isFree={!!selectedVideo.free}
+              hasBoughtTheCourse={course.hasBoughtTheCourse}
+              setCourse={setCourse}
+              howManySales={course.howManySales}
+              courseId={course._id}
+              coursePrice={course.price}
+            />
+          </div>
+        )}
       </div>
     </>
   )

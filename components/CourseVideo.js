@@ -1,15 +1,32 @@
 import { useRouter } from "next/router"
 import { config } from "../constants/config"
+import PayPalButtons from "./ui/PayPalButtons"
+import { isPast } from "date-fns"
 
 const CourseVideo = ({
   videoUrl,
   isAuthenticated,
   hasBoughtTheCourse,
+  howManySales,
   isFree,
+  courseId,
+  coursePrice,
+  setCourse,
 }) => {
   const couldWatch = (isAuthenticated && hasBoughtTheCourse) || isFree
 
   const router = useRouter()
+
+  let price =
+    howManySales < 25
+      ? (coursePrice * 0.385).toFixed(0)
+      : (coursePrice * 0.55).toFixed(0)
+  const offerExpirationDate = new Date(2022, 10, 14, 14, 4)
+
+  if (isPast(offerExpirationDate)) {
+    price = coursePrice
+  }
+
   return (
     <div
       className="df aic jcc mt20 br5"
@@ -36,17 +53,15 @@ const CourseVideo = ({
         </p>
       )}
       {!couldWatch && isAuthenticated && (
-        <p>
-          Para visualizar este video primero deberías{" "}
-          <u
-            className="cursorp"
-            onClick={() => {
-              //TO DO: Implementar contratación del curso
-            }}
-          >
-            adquirir el curso
-          </u>
-        </p>
+        <div className="df aic fdc">
+          <p>Para visualizar este video primero deberías adquirir el curso</p>
+
+          <PayPalButtons
+            price={+price}
+            courseId={courseId}
+            setCourse={setCourse}
+          />
+        </div>
       )}
     </div>
   )
