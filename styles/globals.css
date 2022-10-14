@@ -2,6 +2,8 @@
   --black: #222;
   --blackDark: #111;
   --grey: rgb(93, 91, 91);
+  --green: #10d956;
+  --greenDark: #0caa43;
   --violet: #a20dff;
   --violetDark: #8a0bd9;
   --red: #d12f2f;
@@ -47,6 +49,7 @@ a {
 .mr5 {  margin-right: 0.5rem;}
 .m0 {  margin: 0;}
 .mb5 {  margin-bottom: 0.5rem;}
+.mb20 {  margin-bottom: 2rem;}
 .mt5 {  margin-top: 0.5rem;}
 .mt10 {  margin-top: 1rem;}
 .mt20 {  margin-top: 2rem;}
@@ -67,6 +70,7 @@ a {
 .cblack {  color: var(--black)}
 .cgrey {  color: var(--grey)}
 .cred {  color: var(--red)}
+.cgreen {  color: var(--green)}
 .cviolet {  color: var(--violet)}
 .cyellow {  color: var(--yellow)}
 

@@ -13,6 +13,10 @@ export default function Document() {
           crossOrigin="anonymous"
           defer
         ></script>
+        <script
+          defer
+          src={`https://www.paypal.com/sdk/js?client-id=AZQjVsv5AdTZ19SeSJeiKESkqR3b9bp27Xn1UoKWsOtBNTMv27vdcEC_qgYTdqi4GB-cWGbXBd4BSw0s&currency=USD`}
+        ></script>
       </Head>
       <body>
         <Main />
