@@ -6,6 +6,8 @@ const PayPalButtons = ({ price, courseId, setCourse }) => {
   const [render, setRender] = useState(false)
   const paypalRef = useRef()
 
+  console.log({ url: config.BASE_BACKEND_URL })
+
   const renderPaypalButtons = () => {
     paypal
       .Buttons({
