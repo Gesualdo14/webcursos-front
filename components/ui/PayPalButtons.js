@@ -33,6 +33,7 @@ const PayPalButtons = ({ price, courseId, setCourse }) => {
             `${config.BASE_BACKEND_URL}/paypal/orders/${data.orderID}/capture`,
             {
               method: "post",
+              body: JSON.stringify({ price }),
             }
           )
             .then((response) => response.json())

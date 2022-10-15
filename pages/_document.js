@@ -18,6 +18,7 @@ export default function Document() {
           defer
           src={`https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD`}
         ></script>
+        <link rel="icon" href="/logo.png" />
       </Head>
       <body>
         <Main />
