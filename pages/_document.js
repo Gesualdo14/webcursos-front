@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document"
 
 export default function Document() {
+  const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
   return (
     <Html>
       <Head>
@@ -15,7 +16,7 @@ export default function Document() {
         ></script>
         <script
           defer
-          src={`https://www.paypal.com/sdk/js?client-id=AZQjVsv5AdTZ19SeSJeiKESkqR3b9bp27Xn1UoKWsOtBNTMv27vdcEC_qgYTdqi4GB-cWGbXBd4BSw0s&currency=USD`}
+          src={`https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD`}
         ></script>
       </Head>
       <body>
