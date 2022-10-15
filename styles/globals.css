@@ -74,15 +74,6 @@ a {
 .cviolet {  color: var(--violet)}
 .cyellow {  color: var(--yellow)}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    background: var(--black);
-  }
-}
-
 @media (max-width: 700px) {
   .main-title {
     max-width: 95vw;
