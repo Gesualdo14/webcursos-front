@@ -56,11 +56,7 @@ const CourseVideo = ({
         <div className="df aic fdc">
           <p>Para visualizar este video primero deberías adquirir el curso</p>
 
-          <PayPalButtons
-            price={+price}
-            courseId={courseId}
-            setCourse={setCourse}
-          />
+          <PayPalButtons price={2} courseId={courseId} setCourse={setCourse} />
         </div>
       )}
     </div>
