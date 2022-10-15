@@ -17,7 +17,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+}
 
+body {
+  background: var(--black);
+  color: white;
 }
 
 a {
@@ -73,6 +77,7 @@ a {
 .cgreen {  color: var(--green)}
 .cviolet {  color: var(--violet)}
 .cyellow {  color: var(--yellow)}
+
 
 @media (max-width: 700px) {
   .main-title {

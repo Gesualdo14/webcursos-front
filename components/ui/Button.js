@@ -9,6 +9,7 @@ const Button = ({ text, color, onClick }) => {
           border: none;
           border-radius: 0.3rem;
           cursor: pointer;
+          color: white;
         }
 
         button:hover {
