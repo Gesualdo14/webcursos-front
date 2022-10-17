@@ -37,7 +37,9 @@ const Header = ({ isLoginPage }) => {
           />
         )}
         {isAuthenticated && (
-          <Button text="Cerrar sesión" onClick={handleLogout} color="violet" />
+          <Button onClick={handleLogout} color="violet">
+            Cerrar sesión
+          </Button>
         )}
       </div>
     </>

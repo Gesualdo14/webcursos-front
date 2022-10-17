@@ -2,6 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document"
 
 export default function Document() {
   const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+  console.log({ PAYPAL_CLIENT_ID })
   return (
     <Html>
       <Head>
