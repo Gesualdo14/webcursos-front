@@ -1,7 +1,7 @@
-const Button = ({ text, color, onClick }) => {
+const Button = ({ text, color, onClick, children }) => {
   return (
     <>
-      <button onClick={onClick}>{text}</button>
+      <button onClick={onClick}>{children}</button>
       <style jsx>{`
         button {
           padding: 0.5rem;

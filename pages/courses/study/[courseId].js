@@ -1,22 +1,43 @@
 import { useRouter } from "next/router"
 import { useContext, useEffect, useState } from "react"
+import Swal from "sweetalert2"
 import CourseSectionVideo from "../../../components/CourseSectionVideo"
 import CourseVideo from "../../../components/CourseVideo"
 import Header from "../../../components/Header"
+import Button from "../../../components/ui/Button"
 import { config } from "../../../constants/config"
 import { AuthContext } from "../../_app"
 
 const StudyPage = () => {
   const {
-    state: { isAuthenticated, user, alreadyChecked },
+    state: { isAuthenticated, user, alreadyChecked, jwt },
   } = useContext(AuthContext)
   const router = useRouter()
   const { courseId } = router.query
 
   const [course, setCourse] = useState()
   const [selectedVideo, setSelectedVideo] = useState()
+  console.log({ course })
 
-  console.log({ alreadyChecked })
+  const handleRefund = async () => {
+    console.log("REFUNDING")
+    const url = `${config.BASE_BACKEND_URL}/paypal/captures/${course.capture_id}/refund`
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${jwt}`,
+      },
+    })
+    const data = await res.json()
+
+    if (data.ok) {
+      setCourse((prevData) => ({ ...prevData, hasBoughtTheCourse: false }))
+      Swal.fire("Listo", data.message, "success")
+    } else {
+      Swal.fire("UPS", data.message, "error")
+    }
+  }
 
   useEffect(() => {
     if (!!courseId && alreadyChecked) {
@@ -73,7 +94,14 @@ const StudyPage = () => {
         </div>
         {!!selectedVideo && (
           <div className="p10" style={{ height: "100vh", minWidth: "70%" }}>
-            <h3>{selectedVideo?.title}</h3>
+            <div className="df aic jcsb">
+              <h3>{selectedVideo?.title}</h3>
+              {!!course.capture_id && course.hasBoughtTheCourse && (
+                <Button color="red" onClick={handleRefund}>
+                  Obtener devolución
+                </Button>
+              )}
+            </div>
             <CourseVideo
               videoUrl={selectedVideo.videoUrl}
               isAuthenticated={isAuthenticated}

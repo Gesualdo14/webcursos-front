@@ -39,7 +39,7 @@ const PayPalButtons = ({ price, courseId, setCourse }) => {
             }
           )
             .then((response) => response.json())
-            .then((orderData) => {
+            .then((capture_id) => {
               // Successful capture! For dev/demo purposes:
               Swal.fire({
                 title: "Excelente",
@@ -51,6 +51,7 @@ const PayPalButtons = ({ price, courseId, setCourse }) => {
               setCourse((oldCourseData) => ({
                 ...oldCourseData,
                 hasBoughtTheCourse: true,
+                capture_id,
               }))
             })
         },
