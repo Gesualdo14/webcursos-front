@@ -32,6 +32,7 @@ const CourseVideo = ({
       className="df aic jcc mt20 br5"
       style={{
         overflow: "hidden",
+        width: 1.77 * 28 + "rem",
         height: "28rem",
         boxShadow: "0 2px 10px rgba(255,255,255,0.2)",
       }}
