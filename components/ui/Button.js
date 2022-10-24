@@ -1,4 +1,4 @@
-const Button = ({ text, color, onClick, children }) => {
+const Button = ({ mt, color, onClick, children }) => {
   return (
     <>
       <button onClick={onClick}>{children}</button>
@@ -10,6 +10,7 @@ const Button = ({ text, color, onClick, children }) => {
           border-radius: 0.3rem;
           cursor: pointer;
           color: white;
+          margin-top: ${mt};
         }
 
         button:hover {

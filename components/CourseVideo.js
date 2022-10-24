@@ -7,20 +7,17 @@ const CourseVideo = ({
   videoUrl,
   isAuthenticated,
   hasBoughtTheCourse,
-  howManySales,
   isFree,
   courseId,
   coursePrice,
   setCourse,
+  howManySectionsFinished,
 }) => {
   const couldWatch = (isAuthenticated && hasBoughtTheCourse) || isFree
 
   const router = useRouter()
 
-  let price =
-    howManySales < 25
-      ? (coursePrice * 0.385).toFixed(0)
-      : (coursePrice * 0.55).toFixed(0)
+  let price = Math.min(coursePrice, 10 + 2 * howManySectionsFinished)
   const offerExpirationDate = new Date(2022, 10, 14, 14, 4)
 
   if (isPast(offerExpirationDate)) {
@@ -29,11 +26,11 @@ const CourseVideo = ({
 
   return (
     <div
-      className="df aic jcc mt20 br5"
+      className="df aic jcc br5"
       style={{
         overflow: "hidden",
-        width: 1.77 * 28 + "rem",
-        height: "28rem",
+        width: "100%",
+        height: "auto",
         boxShadow: "0 2px 10px rgba(255,255,255,0.2)",
       }}
     >
@@ -57,7 +54,12 @@ const CourseVideo = ({
         <div className="df aic fdc">
           <p>Para visualizar este video primero deberías adquirir el curso</p>
 
-          <PayPalButtons price={2} courseId={courseId} setCourse={setCourse} />
+          <PayPalButtons
+            coursePrice={coursePrice}
+            price={price}
+            courseId={courseId}
+            setCourse={setCourse}
+          />
         </div>
       )}
     </div>
