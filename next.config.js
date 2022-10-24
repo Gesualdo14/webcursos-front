@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["webcursos.blob.core.windows.net"],
+    domains: ["webcursos.blob.core.windows.net", "lh3.googleusercontent.com"],
   },
   async headers() {
     return [

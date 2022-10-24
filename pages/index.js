@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import CourseCard from "../components/CourseCard"
 import Header from "../components/Header"
@@ -27,12 +28,23 @@ export default function Home() {
 
         <div className="df fdc p5 tac mb5">
           <h1 className="main-title">
-            &ldquo;Vive como si fueras a morir mañana, <br /> aprende como si
-            fueras a vivir por siempre.&rdquo;
+            &ldquo;<span className="main-word">Vive</span> como si fueras a
+            morir mañana, <br /> <span className="main-word">aprende</span> como
+            si fueras a vivir por siempre.&rdquo;
           </h1>
-          <span className="asfe" style={{ marginRight: "4rem" }}>
-            - Mahatma Gandhi
-          </span>
+          <div className="df aic asfe" style={{ marginRight: "5rem" }}>
+            <span className="mr5">- Mahatma Gandhi</span>
+            <div
+              className="posr oh cursorp ml5"
+              style={{
+                width: "1.75rem",
+                height: "1.75rem",
+                borderRadius: "1.75rem",
+              }}
+            >
+              <Image src={"/gandhi.jpg"} layout="fill" objectFit="cover" />
+            </div>
+          </div>
         </div>
 
         <h2 className="mt20 tdu" style={{ marginTop: "5rem" }}>
@@ -51,6 +63,12 @@ export default function Home() {
           max-width: 60vw;
           font-weight: 400;
           font-family: cubano, sans-serif;
+        }
+
+        .main-word {
+          background: linear-gradient(rgb(58, 255, 65), rgb(15, 120, 2));
+          -webkit-background-clip: text;
+          color: transparent;
         }
 
         @media (max-width: 700px) {

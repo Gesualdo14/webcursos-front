@@ -2,24 +2,22 @@ import { useEffect, useRef, useState } from "react"
 import Swal from "sweetalert2"
 import { config } from "../../constants/config"
 
-const PayPalButtons = ({ price, courseId, setCourse }) => {
+const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
   const [render, setRender] = useState(false)
   const paypalRef = useRef()
-
-  console.log({ url: config.BASE_BACKEND_URL })
 
   const renderPaypalButtons = () => {
     paypal
       .Buttons({
         // Order is created on the server and the order id is returned
         createOrder: (data, actions) => {
-          const jwt = localStorage.getItem("jwt")
-          console.log({ jwt })
+          const token = localStorage.getItem("token")
+
           return fetch(`${config.BASE_BACKEND_URL}/paypal/orders`, {
             method: "post",
             headers: {
               "Content-Type": "application/json",
-              authorization: `Bearer ${jwt}`,
+              authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
               courseId,
@@ -31,10 +29,15 @@ const PayPalButtons = ({ price, courseId, setCourse }) => {
         },
         // Finalize the transaction on the server after payer approval
         onApprove: (data, actions) => {
+          const token = localStorage.getItem("token")
           return fetch(
             `${config.BASE_BACKEND_URL}/paypal/orders/${data.orderID}/capture`,
             {
               method: "post",
+              headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${token}`,
+              },
               body: JSON.stringify({ price }),
             }
           )
@@ -74,19 +77,40 @@ const PayPalButtons = ({ price, courseId, setCourse }) => {
   return (
     <>
       <div
-        className="df aic mt20 mb20 cblack"
+        className="df aic mb20 cblack"
         style={{
           backgroundColor: "white",
           padding: "1rem",
           borderRadius: "0.5rem",
         }}
       >
-        <h1 style={{ marginRight: "2rem" }}>${price}</h1>
+        <div className="df fdc aic" style={{ marginRight: "2rem" }}>
+          <h1
+            className="tdlt cgreylight"
+            style={{ fontSize: "1.5rem", fontWeight: "400", margin: "0" }}
+          >
+            ${coursePrice}
+          </h1>
+          <h1 style={{ fontSize: "3rem" }} className="cprice">
+            ${price}
+          </h1>
+        </div>
         <div ref={paypalRef}></div>
       </div>
       <style jsx>{`
         .dom-ready {
           background-color: red;
+        }
+
+        h1 {
+          margin: 0;
+          font-family: cubano, sans-serif;
+        }
+
+        .cprice {
+          background: linear-gradient(rgb(24, 255, 32), rgb(22, 175, 2));
+          -webkit-background-clip: text;
+          color: transparent;
         }
       `}</style>
     </>

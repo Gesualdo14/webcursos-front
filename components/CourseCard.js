@@ -1,8 +1,5 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { useContext } from "react"
-import { AuthContext } from "../pages/_app"
-import Swal from "sweetalert2"
 
 const CourseCard = ({ course }) => {
   const { thumbnail, name, description, _id } = course
