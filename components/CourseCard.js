@@ -50,11 +50,11 @@ const CourseCard = ({ course }) => {
         {`
           .card-container {
             flex-direction: column;
-            background-color: var(--black);
+            background-color: var(--blackDark);
             width: ${15 * 1.77 + "rem"};
             border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
             transition: transform 0.2s ease;
             margin: 0 auto;
           }
@@ -62,7 +62,7 @@ const CourseCard = ({ course }) => {
           .card-body {
             width: 100%;
             padding: 1rem;
-            background-color: var(--black);
+            background-color: var(--blackDark);
           }
 
           .card-container:hover {
