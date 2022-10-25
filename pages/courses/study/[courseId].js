@@ -121,7 +121,7 @@ const StudyPage = () => {
                       ))}
                       {section.videos.length === 0 && (
                         <p style={{ padding: "0 1rem" }}>
-                          🔨 Section en edición ...
+                          🔨 Sección en edición ...
                         </p>
                       )}
                     </div>
