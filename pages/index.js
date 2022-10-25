@@ -2,7 +2,6 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import CourseCard from "../components/CourseCard"
 import Header from "../components/Header"
-import PayPalButtons from "../components/ui/PayPalButtons"
 import { config } from "../constants/config"
 
 export default function Home() {
@@ -50,7 +49,7 @@ export default function Home() {
         <h2 className="mt20 tdu" style={{ marginTop: "5rem" }}>
           CURSOS
         </h2>
-        <div className="mt10">
+        <div className="df courses-container mt10">
           {courses.map((c) => (
             <CourseCard course={c} key={c._id} />
           ))}
@@ -64,6 +63,11 @@ export default function Home() {
           font-weight: 400;
           font-family: cubano, sans-serif;
         }
+        .courses-container {
+          justify-content: space-around;
+          gap: 2rem;
+          padding-bottom: 5rem;
+        }
 
         .main-word {
           background: linear-gradient(rgb(58, 255, 65), rgb(15, 120, 2));
@@ -74,6 +78,10 @@ export default function Home() {
         @media (max-width: 700px) {
           .main-title {
             max-width: 95vw;
+          }
+
+          .courses-container {
+            flex-direction: column;
           }
         }
       `}</style>

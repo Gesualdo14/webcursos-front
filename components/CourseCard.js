@@ -35,7 +35,7 @@ const CourseCard = ({ course }) => {
         </div>
         <div className="df fdc card-body">
           <h3 className="cwhite mv5">{name}</h3>
-          <p className="cgrey m0">{description}</p>
+          <p className="cgrey mt10">{description}</p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@ const CourseCard = ({ course }) => {
 
           .card-body {
             width: 100%;
-            padding: 0.75rem;
+            padding: 1rem;
             background-color: var(--black);
           }
 
