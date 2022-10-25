@@ -34,8 +34,15 @@ const CourseCard = ({ course }) => {
           />
         </div>
         <div className="df fdc card-body">
-          <h3 className="cwhite mv5">{name}</h3>
-          <p className="cgrey mt10">{description}</p>
+          <h2
+            className="cwhite mv5"
+            style={{
+              fontSize: "1.5rem",
+            }}
+          >
+            {name}
+          </h2>
+          <p className="cgrey mt5">{description}</p>
         </div>
       </div>
 
