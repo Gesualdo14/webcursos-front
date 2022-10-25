@@ -46,9 +46,9 @@ export default function Home() {
           </div>
         </div>
 
-        <h2 className="mt20 tdu" style={{ marginTop: "5rem" }}>
-          CURSOS
-        </h2>
+        <hr
+          style={{ width: "7rem", marginTop: "4rem", marginBottom: "3rem" }}
+        ></hr>
         <div className="df courses-container mt10">
           {courses.map((c) => (
             <CourseCard course={c} key={c._id} />
@@ -65,7 +65,7 @@ export default function Home() {
         }
         .courses-container {
           justify-content: space-around;
-          gap: 2rem;
+          gap: 4rem;
           padding-bottom: 5rem;
         }
 
@@ -82,6 +82,7 @@ export default function Home() {
 
           .courses-container {
             flex-direction: column;
+            gap: 2rem;
           }
         }
       `}</style>
