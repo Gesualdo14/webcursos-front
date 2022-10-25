@@ -18,7 +18,7 @@ const CourseSectionVideo = ({
         setSelectedVideo(video)
       }}
     >
-      <div className="df aic fs8">
+      <div className="df aic">
         <span className="mr5">{video.emoji}</span>
         <span>{video.title.slice(2, video.title.length)}</span>
       </div>
