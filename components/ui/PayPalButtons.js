@@ -58,6 +58,9 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
               }))
             })
         },
+        onError: (error) => {
+          console.log({ error })
+        },
         style: { color: "blue" },
       })
       .render(paypalRef.current)
