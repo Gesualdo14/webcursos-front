@@ -20,8 +20,8 @@ const CourseCard = ({ course }) => {
         <div
           style={{
             boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-            width: `${15 * 1.77}rem`,
-            height: `15rem`,
+            width: `100%`,
+            height: `auto`,
             overflow: "hidden",
           }}
         >
@@ -68,6 +68,12 @@ const CourseCard = ({ course }) => {
           .card-container:hover {
             transform: scale(1.03);
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+          }
+
+          @media screen (max-width: 800px) {
+            .card-container {
+              width: 90%;
+            }
           }
         `}
       </style>
