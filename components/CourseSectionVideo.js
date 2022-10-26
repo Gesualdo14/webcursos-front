@@ -8,8 +8,6 @@ const CourseSectionVideo = ({
 }) => {
   const couldWatch = (isAuthenticated && hasBoughtTheCourse) || video.free
 
-  console.log({ isSelected })
-
   return (
     <div
       className="df aic jcsb p5 cursorp"

@@ -21,7 +21,6 @@ const StudyPage = () => {
   const [openedSection, setOpenedSection] = useState(0)
 
   const handleRefund = async () => {
-    console.log("REFUNDING")
     const url = `${config.BASE_BACKEND_URL}/paypal/captures/${course.capture_id}/refund`
     const res = await fetch(url, {
       method: "POST",
@@ -42,7 +41,6 @@ const StudyPage = () => {
 
   useEffect(() => {
     if (!!courseId && alreadyChecked) {
-      console.log("FETCHING", { alreadyChecked, user })
       const queryParams = !!user ? `?user_id=${user.sub}` : ""
       fetch(`${config.BASE_BACKEND_URL}/courses/${courseId}${queryParams}`)
         .then((res) => res.json())

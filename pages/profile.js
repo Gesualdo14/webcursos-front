@@ -15,7 +15,6 @@ export default function Profile() {
   } = useContext(AuthContext)
 
   const router = useRouter()
-  console.log({ token, jwt })
 
   const handleDeletePersonalData = async () => {
     const response = await Swal.fire({
