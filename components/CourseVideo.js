@@ -51,7 +51,7 @@ const CourseVideo = ({
         </p>
       )}
       {!couldWatch && isAuthenticated && (
-        <div className="df aic fdc">
+        <div className="df aic fdc" style={{ width: "90%" }}>
           <p>Para visualizar este video primero deberías adquirir el curso</p>
 
           <PayPalButtons

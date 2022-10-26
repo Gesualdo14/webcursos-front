@@ -23,6 +23,7 @@ body {
 body {
   background: var(--black);
   color: white;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -45,6 +46,7 @@ a {
 .fdc {  flex-direction: column; }
 .aic {  align-items: center; }
 .jcc {  justify-content: center; }
+.jcsa {  justify-content: space-around; }
 .jcsb {  justify-content: space-between; }
 .asfe {  align-self: flex-end; }
 
