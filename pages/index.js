@@ -34,7 +34,7 @@ export default function Home() {
           <div className="df aic asfe" style={{ marginRight: "5rem" }}>
             <span className="mr5">- Mahatma Gandhi</span>
             <div
-              className="posr oh cursorp ml5"
+              className="posr oh ml5"
               style={{
                 width: "1.75rem",
                 height: "1.75rem",

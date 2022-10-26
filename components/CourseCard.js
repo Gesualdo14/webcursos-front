@@ -13,10 +13,7 @@ const CourseCard = ({ course }) => {
 
   return (
     <>
-      <div
-        className="df jcsb cursorp card-container posr"
-        onClick={handleClick}
-      >
+      <div className="df cursorp card-container posr" onClick={handleClick}>
         <div
           style={{
             boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
@@ -37,12 +34,12 @@ const CourseCard = ({ course }) => {
           <h2
             className="cwhite mv5"
             style={{
-              fontSize: "1.5rem",
+              fontSize: "1.8rem",
             }}
           >
             {name}
           </h2>
-          <p className="cgrey mt5">{description}</p>
+          <p className="cgrey mt5 fs12">{description}</p>
         </div>
       </div>
 
