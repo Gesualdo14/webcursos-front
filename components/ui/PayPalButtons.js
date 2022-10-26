@@ -25,7 +25,7 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
             }),
           })
             .then((response) => response.json())
-            .then((order) => order.id)
+            .then(({ data }) => data.id)
         },
         // Finalize the transaction on the server after payer approval
         onApprove: (data, actions) => {
