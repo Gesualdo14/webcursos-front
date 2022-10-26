@@ -78,7 +78,7 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
   return (
     <>
       <div
-        className="df aic mb20 cblack"
+        className="df aic jcsa mb20 cblack paypal_buttons_container"
         style={{
           backgroundColor: "white",
           padding: "1rem",
@@ -103,6 +103,10 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
           background-color: red;
         }
 
+        .paypal_buttons_container {
+          width: 60%;
+        }
+
         h1 {
           margin: 0;
           font-family: cubano, sans-serif;
@@ -112,6 +116,12 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
           background: linear-gradient(rgb(24, 255, 32), rgb(22, 175, 2));
           -webkit-background-clip: text;
           color: transparent;
+        }
+
+        @media screen (max-width: 800px) {
+          .paypal_buttons_container {
+            width: 100%;
+          }
         }
       `}</style>
     </>

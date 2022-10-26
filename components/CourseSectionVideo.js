@@ -13,6 +13,7 @@ const CourseSectionVideo = ({
       className="df aic jcsb p5 cursorp"
       onClick={(e) => {
         e.stopPropagation()
+        e.preventDefault()
         setSelectedVideo(video)
       }}
     >

@@ -18,9 +18,11 @@ const StudyPage = () => {
 
   const [course, setCourse] = useState()
   const [selectedVideo, setSelectedVideo] = useState()
+  const [refunding, setRefunding] = useState(false)
   const [openedSection, setOpenedSection] = useState(0)
 
   const handleRefund = async () => {
+    setRefunding(true)
     const url = `${config.BASE_BACKEND_URL}/paypal/captures/${course.capture_id}/refund`
     const res = await fetch(url, {
       method: "POST",
@@ -30,7 +32,7 @@ const StudyPage = () => {
       },
     })
     const data = await res.json()
-
+    setRefunding(false)
     if (data.ok) {
       setCourse((prevData) => ({ ...prevData, hasBoughtTheCourse: false }))
       Swal.fire("Listo", data.message, "success")
@@ -137,7 +139,7 @@ const StudyPage = () => {
                 <h3>{selectedVideo?.title}</h3>
                 {!!course.capture_id && course.hasBoughtTheCourse && (
                   <Button color="red" onClick={handleRefund}>
-                    Obtener devolución
+                    {!refunding ? "Obtener reembolso" : "Reembolsando..."}
                   </Button>
                 )}
               </div>
