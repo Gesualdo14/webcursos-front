@@ -19,8 +19,6 @@ const Header = ({ isLoginPage }) => {
     setShowUserMenu(false)
   }
 
-  console.log({ isLoginPage, isAuthenticated })
-
   return (
     <>
       <div
