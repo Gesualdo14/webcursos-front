@@ -25,7 +25,7 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
             }),
           })
             .then((response) => response.json())
-            .then((order) => order.id)
+            .then(({ data }) => data.id)
         },
         // Finalize the transaction on the server after payer approval
         onApprove: (data, actions) => {
@@ -42,20 +42,24 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
             }
           )
             .then((response) => response.json())
-            .then((capture_id) => {
+            .then(({ ok, data }) => {
               // Successful capture! For dev/demo purposes:
-              Swal.fire({
-                title: "Excelente",
-                html: "Ya puedes comenzar con el curso 🧠",
-                icon: "success",
-                confirmButtonText: "Excelente 😊",
-                timer: 3000,
-              })
-              setCourse((oldCourseData) => ({
-                ...oldCourseData,
-                hasBoughtTheCourse: true,
-                capture_id,
-              }))
+              if (ok) {
+                Swal.fire({
+                  title: "Excelente",
+                  html: "Ya puedes comenzar con el curso 🧠",
+                  icon: "success",
+                  confirmButtonText: "Excelente 😊",
+                  timer: 3000,
+                })
+                setCourse((oldCourseData) => ({
+                  ...oldCourseData,
+                  hasBoughtTheCourse: true,
+                  capture_id: data,
+                }))
+              } else {
+                Swal.fire("UPS", data, "info")
+              }
             })
         },
         style: { color: "blue" },
@@ -65,14 +69,11 @@ const PayPalButtons = ({ coursePrice, price, courseId, setCourse }) => {
 
   useEffect(() => {
     if (render && courseId) {
-      console.log("RENDER")
       renderPaypalButtons()
     } else {
       setRender(true)
     }
   }, [render, courseId])
-
-  console.log({ price })
 
   return (
     <>
