@@ -58,8 +58,6 @@ const StudyPage = () => {
     }
   }, [courseId])
 
-  console.log({ course })
-
   return (
     <>
       <Header />
@@ -153,7 +151,7 @@ const StudyPage = () => {
                 courseId={course._id}
                 coursePrice={course.price}
                 howManySectionsFinished={
-                  course.sections.filter((s) => s.finished).length
+                  course.sections.filter((s) => s.finished).length > 0
                 }
               />
             </div>
