@@ -151,7 +151,7 @@ const StudyPage = () => {
                 courseId={course._id}
                 coursePrice={course.price}
                 howManySectionsFinished={
-                  course.sections.filter((s) => s.finished).length > 0
+                  course.sections.filter((s) => s.finished).length
                 }
               />
             </div>
