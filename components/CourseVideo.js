@@ -36,7 +36,7 @@ const CourseVideo = ({
       {couldWatch && (
         <video
           id={courseId}
-          src={`https://webcursos.blob.core.windows.net/videos/0c9947d24dc16accd055184b.mp4`}
+          src={videoUrl}
           style={{ width: "100%", height: "100%" }}
           controls
         ></video>
