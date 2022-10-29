@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import { config } from "../constants/config"
 import PayPalButtons from "./ui/PayPalButtons"
 import { isPast } from "date-fns"
 
@@ -17,7 +16,7 @@ const CourseVideo = ({
 
   const router = useRouter()
 
-  let price = Math.min(coursePrice, 10 + 2 * howManySectionsFinished)
+  let price = Math.min(coursePrice, 12 + 1 * howManySectionsFinished)
   const offerExpirationDate = new Date(2022, 10, 14, 14, 4)
 
   if (isPast(offerExpirationDate)) {
@@ -36,7 +35,8 @@ const CourseVideo = ({
     >
       {couldWatch && (
         <video
-          src={videoUrl}
+          id={courseId}
+          src={`https://webcursos.blob.core.windows.net/videos/0c9947d24dc16accd055184b.mp4`}
           style={{ width: "100%", height: "100%" }}
           controls
         ></video>
