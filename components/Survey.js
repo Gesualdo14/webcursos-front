@@ -25,22 +25,27 @@ const Survey = ({ survey }) => {
       }
       return
     }
+    const originalAnswer = answer
+    setAnswer(answerText)
+    try {
+      const res = await fetch(
+        `${config.BASE_BACKEND_URL}/surveys/${survey._id}/answer`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ text: answerText }),
+        }
+      )
 
-    const res = await fetch(
-      `${config.BASE_BACKEND_URL}/surveys/${survey._id}/answer`,
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ text: answerText }),
+      const { ok } = await res.json()
+      if (!ok) {
+        setAnswer(originalAnswer)
       }
-    )
-
-    const { ok } = await res.json()
-    if (ok) {
-      setAnswer(answerText)
+    } catch (error) {
+      setAnswer(originalAnswer)
     }
   }
 
