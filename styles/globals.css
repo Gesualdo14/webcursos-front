@@ -5,6 +5,7 @@
   --grey: rgb(127, 124, 124);
   --green: #10d956;
   --greenDark: #0caa43;
+  --blue: #2372c0;
   --violet: #a20dff;
   --violetDark: #8a0bd9;
   --red: #d12f2f;
@@ -61,6 +62,7 @@ a {
 .mr10 {  margin-right: 1rem;}
 .m0 {  margin: 0;}
 .mb5 {  margin-bottom: 0.5rem;}
+.mb10 {  margin-bottom: 1rem;}
 .mb20 {  margin-bottom: 2rem;}
 .mt2 {  margin-top: 0.2rem;}
 .mt3 {  margin-top: 0.3rem;}
