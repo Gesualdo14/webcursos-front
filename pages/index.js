@@ -1,11 +1,15 @@
 import Image from "next/image"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import CourseCard from "../components/CourseCard"
 import Header from "../components/Header"
+import Button from "../components/ui/Button"
 import { config } from "../constants/config"
 
 export default function Home() {
   const [courses, setCourses] = useState([])
+
+  const router = useRouter()
 
   useEffect(() => {
     fetch(`${config.BASE_BACKEND_URL}/courses`)
@@ -53,6 +57,11 @@ export default function Home() {
           {courses.map((c) => (
             <CourseCard course={c} key={c._id} />
           ))}
+        </div>
+        <div className="mt20 mb20">
+          <Button color={"violet"} onClick={() => router.push("/surveys")}>
+            RELLENAR ENCUESTA
+          </Button>
         </div>
       </div>
       <style jsx>{`
