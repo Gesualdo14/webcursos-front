@@ -15,13 +15,7 @@ const CourseVideo = ({
   const couldWatch = (isAuthenticated && hasBoughtTheCourse) || isFree
 
   const router = useRouter()
-
   let price = Math.min(coursePrice, 12 + 1 * howManySectionsFinished)
-  const offerExpirationDate = new Date(2022, 10, 14, 14, 4)
-
-  if (isPast(offerExpirationDate)) {
-    price = coursePrice
-  }
 
   return (
     <div
