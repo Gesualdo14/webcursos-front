@@ -1,6 +1,5 @@
 import { useRouter } from "next/router"
 import PayPalButtons from "./ui/PayPalButtons"
-import { isPast } from "date-fns"
 
 const CourseVideo = ({
   videoUrl,
