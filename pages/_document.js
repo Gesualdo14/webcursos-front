@@ -9,7 +9,7 @@ export default function Document() {
       <Head>
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XJ75QZ1FLE"
+          src="https://www.googletagmanager.com/gtag/js?id=G-F25DH8FPE3"
         />
         <Script id="google-analytics">
           {`
@@ -17,7 +17,7 @@ export default function Document() {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             
-            gtag('config', 'G-XJ75QZ1FLE')`}
+            gtag('config', 'G-F25DH8FPE3')`}
           ;
         </Script>
         <link
