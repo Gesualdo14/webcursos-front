@@ -8,6 +8,7 @@ export default function Document() {
     <Html>
       <Head>
         <Script
+          id="gtag-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
@@ -25,6 +26,7 @@ export default function Document() {
           src="https://www.googletagmanager.com/gtag/js?id=G-F25DH8FPE3"
         />
         <Script
+          id="gtag"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
