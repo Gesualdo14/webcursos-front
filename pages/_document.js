@@ -18,7 +18,7 @@ export default function Document() {
           })(window,document,'script','dataLayer','GTM-K2FT6QHP');
         `,
           }}
-        ></Script>
+        />
 
         <Script
           async
@@ -35,7 +35,7 @@ export default function Document() {
             gtag('config', 'G-F25DH8FPE3');
             `,
           }}
-        ></Script>
+        />
 
         <link
           href="https://fonts.cdnfonts.com/css/cubano?styles=103531,103532,103533,103534,103535"
