@@ -46,14 +46,12 @@ export default function Document() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <body>
-        {/* <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-K2FT6QHP"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          ></iframe>
-        </noscript> */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K2FT6QHP" height="0" width="0" style="display:none;visibility:hidden"></iframe>',
+          }}
+        />
 
         <Main />
         <NextScript />
