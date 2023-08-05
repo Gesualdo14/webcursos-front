@@ -7,7 +7,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <Script id="google-tag-manager">
+        {/* <Script id="google-tag-manager">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -15,7 +15,7 @@ export default function Document() {
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-K2FT6QHP');
           `}
-        </Script>
+        </Script> */}
 
         <Script
           async
@@ -46,14 +46,14 @@ export default function Document() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <body>
-        <noscript>
+        {/* <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-K2FT6QHP"
             height="0"
             width="0"
             style="display:none;visibility:hidden"
           ></iframe>
-        </noscript>
+        </noscript> */}
 
         <Main />
         <NextScript />
