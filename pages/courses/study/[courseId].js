@@ -93,12 +93,6 @@ const StudyPage = () => {
                       <span className="mr5">{section.name}</span>
                     </div>
                     <div className="df fdc aife">
-                      <span
-                        className=" fs8 cgrey tar"
-                        title="Día real de grabación"
-                      >
-                        {section.recordingDay}
-                      </span>
                       <span className=" fs8 cgrey tar" title="Duración">
                         {section?.realDuration?.text}
                       </span>
